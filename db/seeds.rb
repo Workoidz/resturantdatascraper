@@ -8,8 +8,8 @@
 
 
 # Create some Indian restaurants
-restaurant1 = Restaurant.create(name: "Taj Mahal", location: "345 Oak Street", type: "Indian", multi_locations: true)
-restaurant2 = Restaurant.create(name: "Spice Kitchen", location: "789 Main Street", type: "Indian", multi_locations: false)
+restaurant1 = Restaurant.create(name: "Taj Mahal", location: "345 Oak Street", restaurant_type: "Indian", multi_locations: true)
+restaurant2 = Restaurant.create(name: "Spice Kitchen", location: "789 Main Street", restaurant_type: "Indian", multi_locations: false)
 
 # Create some categories for each restaurant
 category1 = Category.create(name: "Appetizers", restaurant: restaurant1)
