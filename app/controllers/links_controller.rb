@@ -3,8 +3,11 @@ class LinksController < ApplicationController
     @links = Link.all
   end
 
+  
   def show
+    
     @link = Link.find(params[:id])
+    
   end
 
   def new
@@ -13,12 +16,27 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
+    merger @link.url
 
-    if @link.save
+    if @link.save 
       redirect_to @link
     else
       render 'new'
     end
+  end
+
+  def merger url
+      
+      s = ScraperMagicPin.new url 
+      s.html_document
+      
+      r = Restaurant.new
+      r.name = s.rest_name
+      r.save
+      @link.restaurant_id = r.id
+      
+
+
   end
 
   def edit
